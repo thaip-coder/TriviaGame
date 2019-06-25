@@ -1,0 +1,26 @@
+body, html {
+    background-image: url("../images/trivia-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+h1 {
+    text-align: center;
+    text-emphasis: bold;
+}
+
+.questions-body {
+    border: solid 3px grey;
+    text-align: center;
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    position: absolute;
+    background-color: white;
+    opacity: 0.5;
+}
+
+.choices {
+    display: inline;
+}
