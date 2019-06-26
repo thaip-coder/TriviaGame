@@ -1,6 +1,7 @@
 /* ---------- Variables ---------- */
 var correct = 0;
 var incorrect = 0;
+var totalQuestions = 5;
 var timesUp = false;
 
 /* ---------- Questions ---------- */
@@ -65,40 +66,96 @@ function start() {
     });
 };
 
-function timesUp() {
-    
-}
+function timesUp() {}
+
 
 /* ---------- Prcoesses ---------- */
 $(document).ready(function() {
     
-    //Initialize Game
+    //Game Start
     $("#submit").hide();
+    $("#restart").hide();
     $(".questions").hide();
     $(".choices").hide();
     start();
 
     //Selecting Choices with Active class
     $(".btn1").on("click", function() {
-        $(this).addClass("active").siblings().removeClass("active");
+        $(this).removeClass("inactive").addClass("active").siblings().removeClass("active");
     });
 
     $(".btn2").on("click", function() {
-        $(this).addClass("active").siblings().removeClass("active");
+        $(this).removeClass("inactive").addClass("active").siblings().removeClass("active");
     });
 
     $(".btn3").on("click", function() {
-        $(this).addClass("active").siblings().removeClass("active");
+        $(this).removeClass("inactive").addClass("active").siblings().removeClass("active");
     });
     
     $(".btn4").on("click", function() {
-        $(this).addClass("active").siblings().removeClass("active");
+        $(this).removeClass("inactive").addClass("active").siblings().removeClass("active");
     });
 
     $(".btn5").on("click", function() {
-        $(this).addClass("active").siblings().removeClass("active");
+        $(this).removeClass("inactive").addClass("active").siblings().removeClass("active");
     });
 
+    //Submit
+    $("#submit").click(function() {
+        $("#submit").hide();
+        $(".questions").hide();
+        $(".choices").hide();
+        $("#restart").show();
+
+        if($("#a1").hasClass("active")) {
+            correct++;
+        } if($("#b1").hasClass("active") || $("#c1").hasClass("active")) {
+            incorrect++;
+        } else if($("#a1").hasClass("inactive") && $("#b1").hasClass("inactive") && $("#c1").hasClass("inactive")) {
+            incorrect++;
+        };
+
+        if($("#b2").hasClass("active")) {
+            correct++;
+        } if($("#a2").hasClass("active") || $("#c2").hasClass("active")) {
+            incorrect++;
+        } else if($("#a2").hasClass("inactive") && $("#b2").hasClass("inactive") && $("#c2").hasClass("inactive")) {
+            incorrect++;
+        };
+
+        if($("#b3").hasClass("active")) {
+            correct++;
+        } if($("#a3").hasClass("active") || $("#c3").hasClass("active")) {
+            incorrect++;
+        } else if($("#a3").hasClass("inactive") && $("#b3").hasClass("inactive") && $("#c3").hasClass("inactive")) {
+            incorrect++;
+        };
+
+        if($("#c4").hasClass("active")) {
+            correct++;
+        } if($("#b4").hasClass("active") || $("#a4").hasClass("active")) {
+            incorrect++;
+        } else if($("#a4").hasClass("inactive") && $("#b4").hasClass("inactive") && $("#c4").hasClass("inactive")) {
+            incorrect++;
+        };
+
+        if($("#a5").hasClass("active")) {
+            correct++;
+        } if($("#b5").hasClass("active") || $("#c5").hasClass("active")) {
+            incorrect++;
+        } else if($("#a5").hasClass("inactive") && $("#b5").hasClass("inactive") && $("#c5").hasClass("inactive")) {
+            incorrect++;
+        };
+
+        if(incorrect == 0) {
+            $("#incorrect").html("<p>Nice! You didn't miss a single one!!</p>")
+        } else{
+            var score = (Math.floor((correct / totalQuestions) * 100))
+            $("#correct").html("<p>You got " + correct + " correct!</p>");
+            $("#incorrect").html("<p>But... " + incorrect + " incorrect</p>")
+            $("#score").html("<p>You're score is " + score + "%!!</p>")
+        }
+    });
     
 
 })
