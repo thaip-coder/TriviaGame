@@ -1,6 +1,6 @@
 /* ---------- Variables ---------- */
-var correct = 0;
-var incorrect = 0;
+//var correct = 0;
+//var incorrect = 0;
 var totalQuestions = 5;
 var timesUp = false;
 
@@ -101,7 +101,13 @@ $(document).ready(function() {
     });
 
     //Submit
-    $("#submit").click(function() {
+    $("#submit").on("click", function() {
+        var correct = 0;
+        var incorrect = 0;
+        var score = 0;
+        $("#correct").show();
+        $("#incorrect").show();
+        $("#score").show();
         $("#submit").hide();
         $(".questions").hide();
         $(".choices").hide();
@@ -150,9 +156,10 @@ $(document).ready(function() {
 
         //Scoring
         if(incorrect == 0) {
-            $("#incorrect").html("<p>Nice! You didn't miss a single one!!</p>")
-            $("#score").html("<p>You got a PERFECT score of 100%!!!</p>")
-            $("#message").html("<p>Good job, Spartan. You did it!</p>")
+            $("#correct").html("<p>Nice shooting out there.</p>")
+            $("#incorrect").html("<p>You didn't miss a single one!</p>")
+            $("#score").html("<p>Headshots: 100%</p>")
+            $("#message").html("<p>Good job, Spartan. You did it!!</p>")
         } else{
             var score = (Math.floor((correct / totalQuestions) * 100))
             $("#correct").html("<p>You got " + correct + " correct!</p>");
@@ -163,23 +170,23 @@ $(document).ready(function() {
     });
 
     //Restarting
-    $("#restart").click(function() {
+    $("#restart").on("click", function() {
         $("#restart").hide();
-        $("#a1").removeClass("active").removeClass("inactive").addClass("inactive");
-        $("#b1").removeClass("active").removeClass("inactive").addClass("inactive");
-        $("#c1").removeClass("active").removeClass("inactive").addClass("inactive");
-        $("#a2").removeClass("active").removeClass("inactive").addClass("inactive");
-        $("#b2").removeClass("active").removeClass("inactive").addClass("inactive");
-        $("#c2").removeClass("active").removeClass("inactive").addClass("inactive");
-        $("#a3").removeClass("active").removeClass("inactive").addClass("inactive");
-        $("#b3").removeClass("active").removeClass("inactive").addClass("inactive");
-        $("#c3").removeClass("active").removeClass("inactive").addClass("inactive");
-        $("#a4").removeClass("active").removeClass("inactive").addClass("inactive");
-        $("#b4").removeClass("active").removeClass("inactive").addClass("inactive");
-        $("#c4").removeClass("active").removeClass("inactive").addClass("inactive");
-        $("#a5").removeClass("active").removeClass("inactive").addClass("inactive");
-        $("#b5").removeClass("active").removeClass("inactive").addClass("inactive");
-        $("#c5").removeClass("active").removeClass("inactive").addClass("inactive");
+        $("#a1").removeClass("active").addClass("inactive");
+        $("#b1").removeClass("active").addClass("inactive");
+        $("#c1").removeClass("active").addClass("inactive");
+        $("#a2").removeClass("active").addClass("inactive");
+        $("#b2").removeClass("active").addClass("inactive");
+        $("#c2").removeClass("active").addClass("inactive");
+        $("#a3").removeClass("active").addClass("inactive");
+        $("#b3").removeClass("active").addClass("inactive");
+        $("#c3").removeClass("active").addClass("inactive");
+        $("#a4").removeClass("active").addClass("inactive");
+        $("#b4").removeClass("active").addClass("inactive");
+        $("#c4").removeClass("active").addClass("inactive");
+        $("#a5").removeClass("active").addClass("inactive");
+        $("#b5").removeClass("active").addClass("inactive");
+        $("#c5").removeClass("active").addClass("inactive");
         $(".choices").show();
         $(".questions").show();
         $("#submit").show();
