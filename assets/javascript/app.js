@@ -79,7 +79,7 @@ $(document).ready(function() {
     $(".choices").hide();
     start();
 
-    //Selecting Choices with Active class
+    //Selecting Choices to give active class
     $(".btn1").on("click", function() {
         $(this).removeClass("inactive").addClass("active").siblings().removeClass("active");
     });
@@ -107,6 +107,7 @@ $(document).ready(function() {
         $(".choices").hide();
         $("#restart").show();
 
+        //Counting correct and incorrect choices
         if($("#a1").hasClass("active")) {
             correct++;
         } if($("#b1").hasClass("active") || $("#c1").hasClass("active")) {
@@ -147,15 +148,46 @@ $(document).ready(function() {
             incorrect++;
         };
 
+        //Scoring
         if(incorrect == 0) {
             $("#incorrect").html("<p>Nice! You didn't miss a single one!!</p>")
+            $("#score").html("<p>You got a PERFECT score of 100%!!!</p>")
+            $("#message").html("<p>Good job, Spartan. You did it!</p>")
         } else{
             var score = (Math.floor((correct / totalQuestions) * 100))
             $("#correct").html("<p>You got " + correct + " correct!</p>");
             $("#incorrect").html("<p>But... " + incorrect + " incorrect</p>")
             $("#score").html("<p>You're score is " + score + "%!!</p>")
-        }
+            $("#message").html("<p>Phew! We barely made it out of there.</p>")
+        };
     });
+
+    //Restarting
+    $("#restart").click(function() {
+        $("#restart").hide();
+        $("#a1").removeClass("active").removeClass("inactive").addClass("inactive");
+        $("#b1").removeClass("active").removeClass("inactive").addClass("inactive");
+        $("#c1").removeClass("active").removeClass("inactive").addClass("inactive");
+        $("#a2").removeClass("active").removeClass("inactive").addClass("inactive");
+        $("#b2").removeClass("active").removeClass("inactive").addClass("inactive");
+        $("#c2").removeClass("active").removeClass("inactive").addClass("inactive");
+        $("#a3").removeClass("active").removeClass("inactive").addClass("inactive");
+        $("#b3").removeClass("active").removeClass("inactive").addClass("inactive");
+        $("#c3").removeClass("active").removeClass("inactive").addClass("inactive");
+        $("#a4").removeClass("active").removeClass("inactive").addClass("inactive");
+        $("#b4").removeClass("active").removeClass("inactive").addClass("inactive");
+        $("#c4").removeClass("active").removeClass("inactive").addClass("inactive");
+        $("#a5").removeClass("active").removeClass("inactive").addClass("inactive");
+        $("#b5").removeClass("active").removeClass("inactive").addClass("inactive");
+        $("#c5").removeClass("active").removeClass("inactive").addClass("inactive");
+        $(".choices").show();
+        $(".questions").show();
+        $("#submit").show();
+        $("#correct").hide();
+        $("#incorrect").hide();
+        $("#score").hide();
+        $("#message").html("<p>You're back! Lets give go another round!</p>");
+    })
     
 
 })

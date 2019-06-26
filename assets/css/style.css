@@ -1,5 +1,5 @@
 body, html {
-    background-image: url("../images/trivia-bg.jpg");
+    background-image: url("../images/chief.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -17,8 +17,8 @@ h1 {
     margin-top: 100px;
     margin-bottom: 100px;
     position: absolute;
-    background-color: white;
-    opacity: 0.5;
+    background-color: teal;
+    opacity: 0.8;
 }
 
 .choices {
@@ -26,8 +26,8 @@ h1 {
 }
 
 .active {
-    color: turquoise;
-    background-color: blue;
+    color: white;
+    background-color: rgb(9, 83, 40);
 }
 
 #submit {
