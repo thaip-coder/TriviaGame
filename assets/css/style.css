@@ -24,3 +24,7 @@ h1 {
 .choices {
     display: inline;
 }
+
+.active {
+    color: turquoise;
+}

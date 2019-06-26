@@ -6,7 +6,7 @@ var timesUp = false;
 /* ---------- Questions ---------- */
 var question1 = {
     q: "Who was Halo's first developing company?",
-    a: "Bungie",
+    a: "Bungie", //correct
     b: "343 Industries",
     c: "EA Games",
 };
@@ -14,14 +14,14 @@ var question1 = {
 var question2 = {
     q: "What is Master Chief's real name?",
     a: "David",
-    b: "John",
+    b: "John", //correct
     c: "Michael",
 };
 
 var question3 = {
     q: "What is the name of Master Chief's partner AI?",
     a: "Elise",
-    b: "Cortana",
+    b: "Cortana", //correct
     c: "Autumn",
 };
 
@@ -29,12 +29,12 @@ var question4 = {
     q: "What species is Arbiter Thel Vadam?",
     a: "Jiralhanae",
     b: "Flood",
-    c: "Elites",
+    c: "Elites", //correct
 };
 
 var question5 = {
     q: "What team did Master Chief lead?",
-    a: "Blue Team",
+    a: "Blue Team", //correct
     b: "Fireteam Osiris",
     c: "Noble Team",
 };
@@ -64,6 +64,24 @@ function start() {
         $("#submit").show();
     });
 };
+
+$("button").on("click", function() {
+    $("button").removeClass("active");
+    $(this).addClass("active");
+});
+
+/*function highlightwhenclicked() {
+    $('[name="choiceButtonGroup1"]').each(function (index, element) {
+        $(this).click(function() {
+            $(this).removeClass('active'); 
+        });
+    });
+    $('[name="choiceButtonGroup2"]').each(function (index, element) {
+        $(this).click(function() {
+            $(this).removeClass('active'); 
+        });
+    });
+};*/
 
 /* ---------- Prcoesses ---------- */
 $(document).ready(function() {
