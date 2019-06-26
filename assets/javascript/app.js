@@ -1,42 +1,42 @@
-/* ---------- Variabls ---------- */
+/* ---------- Variables ---------- */
 var correct = 0;
 var incorrect = 0;
 var timesUp = false;
 
 /* ---------- Questions ---------- */
 var question1 = {
-    q: "???",
-    a: "aa",
-    b: "bb",
-    c: "cc",
+    q: "Who was Halo's first developing company?",
+    a: "Bungie",
+    b: "343 Industries",
+    c: "EA Games",
 };
 
 var question2 = {
-    q: "???",
-    a: "xx",
-    b: "xx",
-    c: "xx",
+    q: "What is Master Chief's real name?",
+    a: "David",
+    b: "John",
+    c: "Michael",
 };
 
 var question3 = {
-    q: "???",
-    a: "xx",
-    b: "xx",
-    c: "xx",
+    q: "What is the name of Master Chief's partner AI?",
+    a: "Elise",
+    b: "Cortana",
+    c: "Autumn",
 };
 
 var question4 = {
-    q: "???",
-    a: "xx",
-    b: "xx",
-    c: "xx",
+    q: "What species is Arbiter Thel Vadam?",
+    a: "Jiralhanae",
+    b: "Flood",
+    c: "Elites",
 };
 
 var question5 = {
-    q: "???",
-    a: "xx",
-    b: "xx",
-    c: "xx",
+    q: "What team did Master Chief lead?",
+    a: "Blue Team",
+    b: "Fireteam Osiris",
+    c: "Noble Team",
 };
 
 
@@ -44,21 +44,33 @@ var question5 = {
 function start() {
     $("#start").click(function() {
         $("#start").hide();
-        $("#questions").append(question1.q);
-        $("#a").show();
-        $("#b").show();
-        $("#c").show();
-        $("#a").append(question1.a);
-        $("#b").append(question1.b);
-        $("#c").append(question1.c);
+        $(".choices").show();
+        $(".questions").show();
+        $("#a1").append(question1.a);
+        $("#b1").append(question1.b);
+        $("#c1").append(question1.c);
+        $("#a2").append(question2.a);
+        $("#b2").append(question2.b);
+        $("#c2").append(question2.c);
+        $("#a3").append(question3.a);
+        $("#b3").append(question3.b);
+        $("#c3").append(question3.c);
+        $("#a4").append(question4.a);
+        $("#b4").append(question4.b);
+        $("#c4").append(question4.c);
+        $("#a5").append(question5.a);
+        $("#b5").append(question5.b);
+        $("#c5").append(question5.c);
+        $("#submit").show();
     });
 };
 
 /* ---------- Prcoesses ---------- */
 $(document).ready(function() {
     
-    $("#a").hide();
-    $("#b").hide();
-    $("#c").hide();
+    $("#submit").hide();
+    $(".questions").hide();
+    $(".choices").hide();
     start();
+
 })
