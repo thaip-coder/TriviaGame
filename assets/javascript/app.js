@@ -65,30 +65,40 @@ function start() {
     });
 };
 
-$("button").on("click", function() {
-    $("button").removeClass("active");
-    $(this).addClass("active");
-});
-
-/*function highlightwhenclicked() {
-    $('[name="choiceButtonGroup1"]').each(function (index, element) {
-        $(this).click(function() {
-            $(this).removeClass('active'); 
-        });
-    });
-    $('[name="choiceButtonGroup2"]').each(function (index, element) {
-        $(this).click(function() {
-            $(this).removeClass('active'); 
-        });
-    });
-};*/
+function timesUp() {
+    
+}
 
 /* ---------- Prcoesses ---------- */
 $(document).ready(function() {
     
+    //Initialize Game
     $("#submit").hide();
     $(".questions").hide();
     $(".choices").hide();
     start();
+
+    //Selecting Choices with Active class
+    $(".btn1").on("click", function() {
+        $(this).addClass("active").siblings().removeClass("active");
+    });
+
+    $(".btn2").on("click", function() {
+        $(this).addClass("active").siblings().removeClass("active");
+    });
+
+    $(".btn3").on("click", function() {
+        $(this).addClass("active").siblings().removeClass("active");
+    });
+    
+    $(".btn4").on("click", function() {
+        $(this).addClass("active").siblings().removeClass("active");
+    });
+
+    $(".btn5").on("click", function() {
+        $(this).addClass("active").siblings().removeClass("active");
+    });
+
+    
 
 })

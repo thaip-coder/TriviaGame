@@ -27,4 +27,9 @@ h1 {
 
 .active {
     color: turquoise;
+    background-color: blue;
+}
+
+#submit {
+    margin-bottom: 20px;
 }
