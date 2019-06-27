@@ -140,11 +140,13 @@ function scoring() {
         $("#correct").html("<p>You got " + correct + " correct!</p>");
         $("#incorrect").html("<p>But... " + incorrect + " incorrect</p>")
         $("#score").html("<p>You're score is " + score + "%!!</p>")
-        if(score <= 40) {
+        if(score <= 40 && score > 0) {
             $("#message").html("<p>Phew! We barely made it out of there.</p>")
         } else if(score > 40 && score < 100) {
             $("#message").html("<p>A job well done. We were able to keep casualities to a minimum!</p>")
-        };
+        } else if(score === 0) {
+            $("#message").html("<p>We lost everything, Spartan... Lets recuperate.</p>")
+        }
     };
 };
 
@@ -162,7 +164,6 @@ function counter() {
         $("#message").html("<p>Hurry, Spartan! You've only got " + time + " seconds left on the clock!</p>")
     } else if(time === 0) {
         $("#message").html("<p>That's all the time we got! Fall Back!</p>");
-        clearInterval(timeUP);
         clearInterval(intervalID);
     };
     time--;
