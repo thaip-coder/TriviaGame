@@ -156,6 +156,22 @@ function setup() {
     setInterval(timeIt, 1000); 
 };
 
+function timer() {
+    clearInterval(intervalID);
+    intervalID = setInterval(decrement, 1000);
+}
+function decrement(){
+        seconds--;
+        $("#timer").html(time);
+        if(time === 5) {
+            clearInterval(intervalId);
+            $("#timer").html("<h2>Hurry, Spartan! You've only got " + time + " on the clock!</h2>")
+        } else if(time === 0) {
+            clearInterval(intervalId);
+            $("timer").html("That's all the time we got!");
+        };
+};
+
 /*function countdown() {
     var time = 10;
     var intervalId;
