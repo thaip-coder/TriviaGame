@@ -164,7 +164,11 @@ $(document).ready(function() {
             $("#correct").html("<p>You got " + correct + " correct!</p>");
             $("#incorrect").html("<p>But... " + incorrect + " incorrect</p>")
             $("#score").html("<p>You're score is " + score + "%!!</p>")
-            $("#message").html("<p>Phew! We barely made it out of there.</p>")
+            if(score <= 40) {
+                $("#message").html("<p>Phew! We barely made it out of there.</p>")
+            } else if(score > 40 && score < 100) {
+                $("#message").html("<p>A job well done. We were able to keep casualities to a minimum!</p>")
+            };
         };
     });
 
