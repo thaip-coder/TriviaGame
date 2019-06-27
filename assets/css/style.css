@@ -17,8 +17,7 @@ h1 {
     margin-top: 100px;
     margin-bottom: 100px;
     position: absolute;
-    background-color: teal;
-    opacity: 0.8;
+    background-color: rgba(0, 128, 128, 0.8);
 }
 
 .choices {

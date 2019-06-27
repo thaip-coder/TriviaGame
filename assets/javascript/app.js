@@ -1,6 +1,4 @@
 /* ---------- Variables ---------- */
-//var correct = 0;
-//var incorrect = 0;
 var totalQuestions = 5;
 var timesUp = false;
 
@@ -194,7 +192,7 @@ $(document).ready(function() {
         $("#incorrect").hide();
         $("#score").hide();
         $("#message").html("<p>You're back! Lets give go another round!</p>");
-    })
+    });
     
 
-})
+});
