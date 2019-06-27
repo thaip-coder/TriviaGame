@@ -1,10 +1,11 @@
 /* ---------- Variables ---------- */
+
 var totalQuestions = 5;
-var timesUp = false;
 var time = 30;
 var intervalID = undefined;
 
 /* ---------- Questions Variables ---------- */
+
 var question1 = {
     q: "Who was Halo's first developing company?",
     a: "Bungie", //correct
@@ -40,8 +41,8 @@ var question5 = {
     c: "Noble Team",
 };
 
-
 /* ---------- Functions ---------- */
+
 //Start Game
 function start() {
     $("#start").click(function() {
@@ -110,7 +111,7 @@ function scoring() {
         incorrect++;
     };
 
-    //Questoin 4 choice counter
+    //Question 4 choice counter
     if($("#c4").hasClass("active")) {
         correct++;
     } if($("#b4").hasClass("active") || $("#a4").hasClass("active")) {
@@ -166,6 +167,7 @@ function counter() {
 };
 
 /* ---------- Playing Prcoesses ---------- */
+
 $(document).ready(function() {
     
     //Initiate Game
@@ -230,5 +232,4 @@ $(document).ready(function() {
         countdown();
     });
     
-
 });
