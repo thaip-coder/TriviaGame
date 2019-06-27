@@ -2,7 +2,7 @@
 var totalQuestions = 5;
 var timesUp = false;
 
-/* ---------- Questions ---------- */
+/* ---------- Questions Variables ---------- */
 var question1 = {
     q: "Who was Halo's first developing company?",
     a: "Bungie", //correct
@@ -40,6 +40,7 @@ var question5 = {
 
 
 /* ---------- Functions ---------- */
+//Star Game
 function start() {
     $("#start").click(function() {
         $("#start").hide();
@@ -71,7 +72,7 @@ function timesUp() {}
 /* ---------- Prcoesses ---------- */
 $(document).ready(function() {
     
-    //Game Start
+    //Initiate Game
     $("#submit").hide();
     $("#restart").hide();
     $(".questions").hide();
@@ -112,7 +113,7 @@ $(document).ready(function() {
         $(".choices").hide();
         $("#restart").show();
 
-        //Counting correct and incorrect choices
+        //Question 1 choice counter
         if($("#a1").hasClass("active")) {
             correct++;
         } if($("#b1").hasClass("active") || $("#c1").hasClass("active")) {
@@ -121,6 +122,7 @@ $(document).ready(function() {
             incorrect++;
         };
 
+        //Question 2 choice counter
         if($("#b2").hasClass("active")) {
             correct++;
         } if($("#a2").hasClass("active") || $("#c2").hasClass("active")) {
@@ -129,6 +131,7 @@ $(document).ready(function() {
             incorrect++;
         };
 
+        //Question 3 choice counter
         if($("#b3").hasClass("active")) {
             correct++;
         } if($("#a3").hasClass("active") || $("#c3").hasClass("active")) {
@@ -137,6 +140,7 @@ $(document).ready(function() {
             incorrect++;
         };
 
+        //Questoin 4 choice counter
         if($("#c4").hasClass("active")) {
             correct++;
         } if($("#b4").hasClass("active") || $("#a4").hasClass("active")) {
@@ -145,6 +149,7 @@ $(document).ready(function() {
             incorrect++;
         };
 
+        //Question 5 choice counter
         if($("#a5").hasClass("active")) {
             correct++;
         } if($("#b5").hasClass("active") || $("#c5").hasClass("active")) {
