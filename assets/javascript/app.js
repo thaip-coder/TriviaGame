@@ -1,7 +1,8 @@
 /* ---------- Variables ---------- */
 var totalQuestions = 5;
 var timesUp = false;
-var time = 10;
+var time = 30;
+var intervalID = undefined;
 
 /* ---------- Questions Variables ---------- */
 var question1 = {
@@ -44,7 +45,7 @@ var question5 = {
 //Start Game
 function start() {
     $("#start").click(function() {
-        setup();
+        countdown();
         $("#start").hide();
         $(".choices").show();
         $(".questions").show();
@@ -146,55 +147,23 @@ function scoring() {
     };
 };
 
-function setup() {
+function countdown() {
     $("#timer").html("<h2>" + time + "</h2>");
-    function timeIt() {
-        time--;
-        $("#timer").html("<h2>" + time + "</h2>");
-    };
-    setTimeout(scoring, 10000)
-    setInterval(timeIt, 1000); 
+    counter();
+    setTimeout(scoring, 30000);
+    intervalID = setInterval(counter, 1000);
 };
 
-function timer() {
-    clearInterval(intervalID);
-    intervalID = setInterval(decrement, 1000);
-}
-function decrement(){
-        seconds--;
-        $("#timer").html(time);
-        if(time === 5) {
-            clearInterval(intervalId);
-            $("#timer").html("<h2>Hurry, Spartan! You've only got " + time + " on the clock!</h2>")
-        } else if(time === 0) {
-            clearInterval(intervalId);
-            $("timer").html("That's all the time we got!");
-        };
-};
-
-/*function countdown() {
-    var time = 10;
-    var intervalId;
-   
-    $("timer").html("<h2>" + time + "</h2>");
-    time--;
-    
-    if(time === 5) {
-        $("#timer").html("<h2>Hurry, Spartan! You've only got " + time + " on the clock!</h2>")
+function counter() {
+    $("#timer").html("<h2>" + time + "</h2>");
+    if(time === 10) {
+        $("#message").html("<p>Hurry, Spartan! You've only got " + time + " seconds left on the clock!</p>")
     } else if(time === 0) {
-        $("timer").html("That's all the time we got!");
-        timesup();
+        $("#message").html("<p>That's all the time we got! Fall Back!</p>");
+        clearInterval(intervalID);
     };
+    time--;
 };
-
-function timeLeft() {
-    clearInterval(intervalId);
-    intervalId = setInterval("countdown()", 1000);
-};
-
-function timesUp() {
-    clearInterval(intervalId);
-};*/
 
 /* ---------- Playing Prcoesses ---------- */
 $(document).ready(function() {
@@ -257,6 +226,8 @@ $(document).ready(function() {
         $("#incorrect").hide();
         $("#score").hide();
         $("#message").html("<p>You're back! Lets go another round!</p>");
+        time = 30;
+        countdown();
     });
     
 
