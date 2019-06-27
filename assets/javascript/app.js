@@ -45,6 +45,7 @@ function start() {
         $("#start").hide();
         $(".choices").show();
         $(".questions").show();
+        $("#message").html("<p>Quickly! Choose the right answers before the Covenant launch their next attack!</p>")
         $("#a1").append(question1.a);
         $("#b1").append(question1.b);
         $("#c1").append(question1.c);
@@ -191,7 +192,7 @@ $(document).ready(function() {
         $("#correct").hide();
         $("#incorrect").hide();
         $("#score").hide();
-        $("#message").html("<p>You're back! Lets give go another round!</p>");
+        $("#message").html("<p>You're back! Lets go another round!</p>");
     });
     
 
