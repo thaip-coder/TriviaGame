@@ -153,7 +153,7 @@ function countdown() {
     intervalID = setInterval(counter, 1000);
     $("#timer").html("<h2>" + time + "</h2>");
     counter();
-    setTimeout(scoring, 30000);
+    timeUP = setTimeout(scoring, 30000);
 };
 
 function counter() {
@@ -161,8 +161,9 @@ function counter() {
     if(time === 10) {
         $("#message").html("<p>Hurry, Spartan! You've only got " + time + " seconds left on the clock!</p>")
     } else if(time === 0) {
-        clearInterval(intervalID);
         $("#message").html("<p>That's all the time we got! Fall Back!</p>");
+        clearInterval(timeUP);
+        clearInterval(intervalID);
     };
     time--;
 };
@@ -201,6 +202,7 @@ $(document).ready(function() {
 
     //Submit
     $("#submit").on("click", function() {
+        clearInterval(timeUP);
         clearInterval(intervalID);
         scoring();
     });
