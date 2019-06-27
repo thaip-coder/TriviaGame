@@ -14,7 +14,7 @@ h1 {
     text-align: center;
     text-emphasis: bold;
     text-decoration: underline;
-    color: gold;
+    color: goldenrod;
 }
 
 .button:hover {
@@ -49,6 +49,3 @@ h1 {
     margin-bottom: 20px;
 }
 
-#message {
-    color: white;
-}
