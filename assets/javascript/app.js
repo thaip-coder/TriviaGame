@@ -1,6 +1,7 @@
 /* ---------- Variables ---------- */
 var totalQuestions = 5;
 var timesUp = false;
+var time = 10;
 
 /* ---------- Questions Variables ---------- */
 var question1 = {
@@ -40,9 +41,10 @@ var question5 = {
 
 
 /* ---------- Functions ---------- */
-//Star Game
+//Start Game
 function start() {
     $("#start").click(function() {
+        setup();
         $("#start").hide();
         $(".choices").show();
         $(".questions").show();
@@ -66,10 +68,119 @@ function start() {
     });
 };
 
-function timesUp() {}
+//Selection and scoring
+function scoring() {
+    var correct = 0;
+    var incorrect = 0;
+    var score = 0;
 
+    $("#correct").show();
+    $("#incorrect").show();
+    $("#score").show();
+    $("#submit").hide();
+    $(".questions").hide();
+    $(".choices").hide();
+    $("#restart").show();
 
-/* ---------- Prcoesses ---------- */
+    //Question 1 choice counter
+    if($("#a1").hasClass("active")) {
+        correct++;
+    } if($("#b1").hasClass("active") || $("#c1").hasClass("active")) {
+        incorrect++;
+    } else if($("#a1").hasClass("inactive") && $("#b1").hasClass("inactive") && $("#c1").hasClass("inactive")) {
+        incorrect++;
+    };
+
+    //Question 2 choice counter
+    if($("#b2").hasClass("active")) {
+        correct++;
+    } if($("#a2").hasClass("active") || $("#c2").hasClass("active")) {
+        incorrect++;
+    } else if($("#a2").hasClass("inactive") && $("#b2").hasClass("inactive") && $("#c2").hasClass("inactive")) {
+        incorrect++;
+    };
+
+    //Question 3 choice counter
+    if($("#b3").hasClass("active")) {
+        correct++;
+    } if($("#a3").hasClass("active") || $("#c3").hasClass("active")) {
+        incorrect++;
+    } else if($("#a3").hasClass("inactive") && $("#b3").hasClass("inactive") && $("#c3").hasClass("inactive")) {
+        incorrect++;
+    };
+
+    //Questoin 4 choice counter
+    if($("#c4").hasClass("active")) {
+        correct++;
+    } if($("#b4").hasClass("active") || $("#a4").hasClass("active")) {
+        incorrect++;
+    } else if($("#a4").hasClass("inactive") && $("#b4").hasClass("inactive") && $("#c4").hasClass("inactive")) {
+        incorrect++;
+    };
+
+    //Question 5 choice counter
+    if($("#a5").hasClass("active")) {
+        correct++;
+    } if($("#b5").hasClass("active") || $("#c5").hasClass("active")) {
+        incorrect++;
+    } else if($("#a5").hasClass("inactive") && $("#b5").hasClass("inactive") && $("#c5").hasClass("inactive")) {
+        incorrect++;
+    };
+
+    //Scoring
+    if(incorrect == 0) {
+        $("#correct").html("<p>Nice shooting out there.</p>")
+        $("#incorrect").html("<p>You didn't miss a single one!</p>")
+        $("#score").html("<p>Headshots: 100%</p>")
+        $("#message").html("<p>Good job, Spartan. You did it!!</p>")
+    } else{
+        var score = (Math.floor((correct / totalQuestions) * 100))
+        $("#correct").html("<p>You got " + correct + " correct!</p>");
+        $("#incorrect").html("<p>But... " + incorrect + " incorrect</p>")
+        $("#score").html("<p>You're score is " + score + "%!!</p>")
+        if(score <= 40) {
+            $("#message").html("<p>Phew! We barely made it out of there.</p>")
+        } else if(score > 40 && score < 100) {
+            $("#message").html("<p>A job well done. We were able to keep casualities to a minimum!</p>")
+        };
+    };
+};
+
+function setup() {
+    $("#timer").html("<h2>" + time + "</h2>");
+    function timeIt() {
+        time--;
+        $("#timer").html("<h2>" + time + "</h2>");
+    };
+    setTimeout(scoring, 10000)
+    setInterval(timeIt, 1000); 
+};
+
+/*function countdown() {
+    var time = 10;
+    var intervalId;
+   
+    $("timer").html("<h2>" + time + "</h2>");
+    time--;
+    
+    if(time === 5) {
+        $("#timer").html("<h2>Hurry, Spartan! You've only got " + time + " on the clock!</h2>")
+    } else if(time === 0) {
+        $("timer").html("That's all the time we got!");
+        timesup();
+    };
+};
+
+function timeLeft() {
+    clearInterval(intervalId);
+    intervalId = setInterval("countdown()", 1000);
+};
+
+function timesUp() {
+    clearInterval(intervalId);
+};*/
+
+/* ---------- Playing Prcoesses ---------- */
 $(document).ready(function() {
     
     //Initiate Game
@@ -102,79 +213,7 @@ $(document).ready(function() {
 
     //Submit
     $("#submit").on("click", function() {
-        var correct = 0;
-        var incorrect = 0;
-        var score = 0;
-        $("#correct").show();
-        $("#incorrect").show();
-        $("#score").show();
-        $("#submit").hide();
-        $(".questions").hide();
-        $(".choices").hide();
-        $("#restart").show();
-
-        //Question 1 choice counter
-        if($("#a1").hasClass("active")) {
-            correct++;
-        } if($("#b1").hasClass("active") || $("#c1").hasClass("active")) {
-            incorrect++;
-        } else if($("#a1").hasClass("inactive") && $("#b1").hasClass("inactive") && $("#c1").hasClass("inactive")) {
-            incorrect++;
-        };
-
-        //Question 2 choice counter
-        if($("#b2").hasClass("active")) {
-            correct++;
-        } if($("#a2").hasClass("active") || $("#c2").hasClass("active")) {
-            incorrect++;
-        } else if($("#a2").hasClass("inactive") && $("#b2").hasClass("inactive") && $("#c2").hasClass("inactive")) {
-            incorrect++;
-        };
-
-        //Question 3 choice counter
-        if($("#b3").hasClass("active")) {
-            correct++;
-        } if($("#a3").hasClass("active") || $("#c3").hasClass("active")) {
-            incorrect++;
-        } else if($("#a3").hasClass("inactive") && $("#b3").hasClass("inactive") && $("#c3").hasClass("inactive")) {
-            incorrect++;
-        };
-
-        //Questoin 4 choice counter
-        if($("#c4").hasClass("active")) {
-            correct++;
-        } if($("#b4").hasClass("active") || $("#a4").hasClass("active")) {
-            incorrect++;
-        } else if($("#a4").hasClass("inactive") && $("#b4").hasClass("inactive") && $("#c4").hasClass("inactive")) {
-            incorrect++;
-        };
-
-        //Question 5 choice counter
-        if($("#a5").hasClass("active")) {
-            correct++;
-        } if($("#b5").hasClass("active") || $("#c5").hasClass("active")) {
-            incorrect++;
-        } else if($("#a5").hasClass("inactive") && $("#b5").hasClass("inactive") && $("#c5").hasClass("inactive")) {
-            incorrect++;
-        };
-
-        //Scoring
-        if(incorrect == 0) {
-            $("#correct").html("<p>Nice shooting out there.</p>")
-            $("#incorrect").html("<p>You didn't miss a single one!</p>")
-            $("#score").html("<p>Headshots: 100%</p>")
-            $("#message").html("<p>Good job, Spartan. You did it!!</p>")
-        } else{
-            var score = (Math.floor((correct / totalQuestions) * 100))
-            $("#correct").html("<p>You got " + correct + " correct!</p>");
-            $("#incorrect").html("<p>But... " + incorrect + " incorrect</p>")
-            $("#score").html("<p>You're score is " + score + "%!!</p>")
-            if(score <= 40) {
-                $("#message").html("<p>Phew! We barely made it out of there.</p>")
-            } else if(score > 40 && score < 100) {
-                $("#message").html("<p>A job well done. We were able to keep casualities to a minimum!</p>")
-            };
-        };
+        scoring();
     });
 
     //Restarting
