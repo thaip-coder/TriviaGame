@@ -1,4 +1,4 @@
-/* ---------- Variables ---------- */
+/* ---------- Global Variables ---------- */
 
 var totalQuestions = 5;
 var time = 30;
@@ -146,7 +146,7 @@ function scoring() {
             $("#message").html("<p>A job well done. We were able to keep casualities to a minimum!</p>")
         } else if(score === 0) {
             $("#message").html("<p>We lost everything, Spartan... Lets recuperate.</p>")
-        }
+        };
     };
 };
 
@@ -208,7 +208,7 @@ $(document).ready(function() {
         scoring();
     });
 
-    //Restarting
+    //Restart
     $("#restart").on("click", function() {
         $("#restart").hide();
         $("#a1").removeClass("active").addClass("inactive");
