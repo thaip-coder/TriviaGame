@@ -15,6 +15,12 @@ h1 {
     text-emphasis: bold;
     text-decoration: underline;
     color: goldenrod;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+h4 {
+    color: turquoise;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .button:hover {
