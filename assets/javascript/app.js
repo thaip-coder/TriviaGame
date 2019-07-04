@@ -169,8 +169,7 @@ function counter() {
     time--;
 };
 
-/* ---------- Playing Prcoesses ---------- */
-
+/* ---------- Playing Processes ---------- */
 $(document).ready(function() {
     
     //Initiate Game
