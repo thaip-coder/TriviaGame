@@ -21,7 +21,7 @@
     - ![Screenshot](example.png)
 
 5. Deployed version of the app:
-    - [GitHub Deployed Version](https://tp222.github.io/TriviaGame/)
+    - [GitHub Deployed Version](https://thaip-coder.github.io/TriviaGame/)
 
 6. My app utilized the following:
     - Github
